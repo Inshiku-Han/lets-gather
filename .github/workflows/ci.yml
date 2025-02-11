@@ -1,0 +1,31 @@
+name: "🔁 CI"
+
+on:
+  pull_request:
+    types: [synchronize, opened, reopened, ready_for_review]
+
+jobs:
+  biome:
+    name: "▲ Biome"
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: biomejs/setup-biome@v2
+        with:
+          version: 1.9.4
+      - name: "🔬 Lint"
+        run: biome ci .
+
+  typecheck:
+    name: "ʦ TypeScript"
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.13.1
+
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
+      - name: "🔎 Type check"
+        run: npm run typecheck --if-present

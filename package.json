@@ -9,8 +9,9 @@
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "dev": "next dev",
-    "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "lint:fix": "biome check --write --unsafe src",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.0",
@@ -29,6 +30,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@cloudflare/workers-types": "^4.20240815.0",
     "@types/node": "^22.10.6",
     "@types/react": "^19.0.7",
@@ -38,8 +40,17 @@
     "eslint": "^9.18.0",
     "eslint-config-next": "^15.1.4",
     "eslint-plugin-drizzle": "^0.2.3",
+    "lefthook": "^1.10.10",
     "postcss": "^8",
     "tailwindcss": "^4.0.0",
     "typescript": "^5"
+  },
+  "packageManager": "npm@11.1.0",
+  "engines": {
+    "node": "22.13.1"
+  },
+  "volta": {
+    "node": "22.13.1",
+    "npm": "11.1.0"
   }
 }
