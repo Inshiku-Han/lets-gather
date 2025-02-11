@@ -1,2 +1,7 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @plugin "daisyui";
+
+@utility container {
+	margin-inline: auto;
+}
