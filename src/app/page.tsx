@@ -24,6 +24,10 @@ export default function Home() {
 					</span>
 				</p>
 
+				<button type="button" className="btn btn-primary">
+					I'm daisy button
+				</button>
+
 				<RecentPost />
 			</div>
 		</main>
